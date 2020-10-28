@@ -23,6 +23,7 @@ app.use(
     keys: [keys.cookieKey],
   })
 );
+
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -37,7 +38,7 @@ if (["production", "ci"].includes(process.env.NODE_ENV)) {
     res.sendFile(path.resolve("client", "build", "index.html"));
   });
 }
-
+ 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Listening on port`, PORT);
